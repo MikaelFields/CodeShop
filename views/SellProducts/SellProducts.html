@@ -1,0 +1,630 @@
+<!--PRELOADER-->
+<div id="preloaderShown" class="center animated fadeIn">
+    <!--<div class="preloader-wrapper big active preloader-position">
+        <div class="spinner-layer spinner-red-only">
+            <div class="circle-clipper left">
+                <div class="circle"></div>
+            </div>
+            <div class="gap-patch">
+                <div class="circle"></div>
+            </div>
+            <div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+        </div>
+    </div>-->
+    <div class="row">
+        <div class="col s12 m4 l5"></div>
+        <div class="col s12 m4 l2">
+            <div class="preloader-position-a">
+                <img src="/img/logov2.png" style="width: 100px" class="responsive-img" alt="CodePro">
+                <br><br>
+                <div class="progress">
+                    <div class="indeterminate"></div>
+                </div>
+
+                <h6 class="grey-text thin">Show us your talent or just share the incredible work from others</h6>
+            </div>
+        </div>
+        <div class="col s12 m4 l5"></div>
+    </div>
+</div>
+
+<!--SIDEVAR, this element most be outsite of the hiden content body-->
+<button type="" class="button-collapse show-on-large hide" data-activates="slide-out"></button>
+<ul id="slide-out" class="side-nav">
+    <li>
+        <div class="userView">
+            <div class="background">
+                <img src="/img/cover profile.png">
+            </div>
+            <a href="#!profile"><img class="circle" src="{{avatarPicture}}"></a>
+            <a href="#!profile"><span class="white-text name">{{authUser}}</span></a>
+            <a href=""><span class="white-text email">{{email}}</span></a>
+        </div>
+    </li>
+    <li><a href="#!profile" style="font-size: 80%"><i class="material-icons grey-text left">account_circle</i> Your profile</a></li>
+    <li class="no-padding">
+        <ul class="collapsible collapsible-accordion">
+            <li>
+                <a class="collapsible-header" style="font-size: 80%">Status<i class="material-icons" style="margin-left: 18px">arrow_drop_down</i></a>
+                <div class="collapsible-body">
+                    <ul>
+                        <li><a href="" style="font-size: 80%"><i class="material-icons grey-text left">monetization_on</i> Your earnings <span class="purple-text">{{earnings}}</span></a></li>
+                        <li><a href="" style="font-size: 80%"><i class="material-icons grey-text left">attach_money</i>Your sales <span class="purple-text">{{sales}}</span></a></li>
+                        <li><a href="" style="font-size: 80%"><i  class="material-icons grey-text left">shopping_cart</i> Cart buctket <span class="purple-text">{{cartButcket}}</span></a></li>
+                        <li><a href="" style="font-size: 80%"><i class="material-icons grey-text left">lightbulb_outline</i> Created items <span class="purple-text">{{itemsNumber}}</span></a></li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </li>
+    <li><a href="" style="font-size: 80%"><i class="material-icons grey-text left">list</i> Collection items <span class="purple-text">{{collectNumber}}</span></a></li>
+    <li><a href="" style="font-size: 80%"><i class="material-icons grey-text left">stars</i> Your followers <span class="purple-text">{{followersNumber}}</span></a></li>
+    <li><a href="" style="font-size: 80%"><i class="material-icons grey-text left">star_rate</i> Following <span class="purple-text">{{followingNumber}}</span></a></li>
+    <li><a href="" style="font-size: 80%"><i class="material-icons grey-text left">thumb_up</i> Likes <span class="purple-text">{{authorLikes}}</span></a></li>
+    <li>
+        <div class="divider"></div>
+    </li>
+    <li><a ng-click="signOutF();" style="font-size: 80%" class="waves-effect" href="#!login"><i class="material-icons">power_settings_new</i> Sign Out</a></li>
+</ul>
+
+
+<!--SIDEVAR, this element most be outsite of the hiden content body-->
+<button type="" class="button-collapse-notif show-on-large hide" data-activates="notications"></button>
+<ul id="notications" class="side-nav">
+    <li>
+        <div class="userView">
+            <div class="background">
+                <img src="/img/cover profile.png">
+            </div>
+            <a><span class="white-text email"><i class="material-icons left white-text">notifications_none</i>Notifications panel</span></a>
+        </div>
+    </li>
+    <li class="no-padding">
+        <li><a href=""></a></li>
+    </li>
+</ul>
+
+<div id="contentDataShown" class="animated fadeIn">
+
+    <!--MAIN NAVBAR-->
+    <nav class="purple-custom " style="box-shadow: none">
+        <div class="nav-wrapper container">
+            <a href="#!landing" class="brand-logo"><img src="/img/logo.png" class="responsive-img" /></a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a class="small" href="#!landing"><i class="material-icons left">shop</i>Shop</a></li>
+                <li><a class="white-text small" href="" title="{{buctket}} items on your cart"><i  class="material-icons white-text left">shopping_cart</i> {{cartButcket}}</a></li>
+                <li class="active"><a class="small" href="#!SellProducts"><i class="material-icons left">shopping_basket</i>Sell a product</a></li>
+                <li id="notifBar"><a ng-click="OpenNotif();"><i class="material-icons">notifications</i></a></li>
+                <li id="userName"><a ng-click="OpenMenu();" class="small" href=""><i class="material-icons left">account_circle</i><span class="amber-text">{{authUser}}</span></a></li>
+            </ul>
+        </div>
+    </nav>
+    <br><br><br>
+    <div class="row">
+        <div class="card card-form-sellProd no-shadow animated fadeIn" style="height: auto">
+            <div class="card-content form" id="firstStep">
+                <div class="center">
+                    <h5 class="grey-text">Submit & sell your item on three simple steps</h5>
+                    <p class="grey-text">BigCode Submission</p>
+                    <br>
+                </div>
+                <!--STEPPERS OR INDICATORS-->
+                <a id="step-one-btn" ng-disabled="stepperOne" class="waves-effect purple darken-4 waves-light z-depth-5-color btn-large stepper-left">1.Fill all the data<i class="material-icons right">assignment</i></a>
+                <a id="step-two-btn" ng-disabled="stepperTwo" class="waves-effect purple darken-4  waves-light z-depth-5 btn-large stepper-center">2.Attach your files<i class="material-icons right">note_add</i></a>
+                <a id="step-three-btn" ng-disabled="stepperThree" class="waves-effect purple darken-4  waves-light z-depth-5 btn-large stepper-right">3.Upload your item<i class="material-icons right">cloud_upload</i></a>
+
+                <br> <br> <br> <br> <br>
+                <!--PRELOADER STEPPER-->
+                <div id="preloader-stepper" class="center content-preload-stepper animated fadeIn">
+                    <div class="spacer"></div>
+                    <h5 class="purple-text-color">Saving...</h5>
+                    <div class="progress">
+                        <div class="indeterminate"></div>
+                    </div>
+                    <div class="spacer"></div>
+                </div>
+
+                <!--FIST STEP-->
+                <div id="form-step-one">
+                    <div class="row">
+                        <div class="col s12">
+                            <input id="tittle" placeholder="Product tittle" type="text" class="validate">
+                            <span class="grey-text small">eg. "Admin template" <span class="red-text" id="tittleV"></span></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12">
+                            <div id="keys" class="chips chips-initial"></div>
+                            <span class="grey-text small">To add key words (tags), just enter your tag text and press enter. <span class="red-text" id="chipsV"></span></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12">
+                            <input id="demoUrl" placeholder="Demo URL" type="text" class="validate">
+                            <span class="grey-text small">eg. 'http://example.com/demo' <span class="red-text" id="demoUrlV"></span></span>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field col s12 m6 l6">
+                            <span class="red-text small" id="typeProdctV"></span>
+                            <select id="typeProdct">
+                            <option selected disabled>Type of product?</option>
+                            <option value="Website template">Website template</option>
+                            <option value="Single HTML element template">Single HTML element template</option>
+                            <option value="eCommerce">eCommerce</option>
+                            <option value="WordPress">WordPress</option>
+                            <option value="PSD templates">PSD templates</option>                                                                            
+                            </select>
+                        </div>
+                        <div class="input-field col s12 m1 l1"></div>
+                        <div class="input-field col s12 m4 l4">
+                            <!-- Switch -->
+                            <div class="switch">
+                                <label>
+                           for sell
+                            <input ng-model="productP" type="checkbox">
+                            <span class="lever"></span>
+                           for free
+                        </label>
+                            </div>
+                            <br class="hide-on-med-up">
+                        </div>
+                        <div class="input-field col s12 m1 l1"></div>
+                    </div>
+
+                    <div class="row">
+                        <div class="input-field col s12 m6 l6">
+                            <span class="red-text small" id="toolsV"></span>
+                            <select multiple id="tools">
+                            <option  disabled>Tools implemented</option>
+                            <option value="AngularJs">AngularJs</option>
+                            <option value="Angular">Angular</option>
+                            <option value="AngularM">Angular Material</option>
+                            <option value="ReactJs">ReactJs</option>
+                            <option value="Ionic">Ionic</option>
+                            <option value="Ionic2">Ionic 2</option>
+                            <option value="JavaScript">JavaScript</option>
+                            <option value="C++">C++</option>
+                            <option value="C#">C#</option>
+                            <option value=".Net">.Net</option>
+                            <option value="Firebase">Firebase</option>
+                            <option value="MongoDB">MongoDB</option>
+                            <option value="MaterialD">Material Design</option>
+                            <option value="Materialize">Materialize</option>
+                            <option value="Bootstrap">Bootstrap</option>
+                            <option value="Ember.js">Ember.js</option>
+                            <option value="Django">Django</option>
+                            <option value="NodeJS">NodeJS</option>
+                            <option value="Drupal">Drupal</option>
+                            <option value="PHP">PHP</option>
+                            <option value="Express">Express</option>
+                            <option value="Hammer.js">Hammer.js</option>
+                            <option value="HTML5">HTML5</option>
+                            <option value="SASS">SASS</option>
+                            <option value="LESS">LESS</option>
+                            <option value="Jade">Jade</option>
+                            <option value="Java">Java</option>
+                            </select>
+                        </div>
+                        <div class="input-field col s12 m6 l6">
+                            <span class="red-text small" id="browersV"></span>
+                            <select multiple id="browers">
+                            <option value="" disabled >Compatible browers</option>
+                            <option value="IE6">IE6</option>
+                            <option value="IE7">IE7</option>
+                            <option value="IE8">IE8</option>
+                            <option value="IE9">IE9</option>
+                            <option value="IE10">IE10</option>
+                            <option value="IE11">IE11</option>
+                            <option value="Firefox">Firefox</option>
+                            <option value="Safari">Safari</option>
+                            <option value="Opera">Opera</option>
+                            <option value="Chrome">Chrome</option>
+                            <option value="Edge">Edge</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12 m6 l6">
+                            <span class="red-text small" id="CompatibleV"></span>
+                            <select multiple id="Compatible">
+                            <option value="" disabled>Compatible with</option>
+                            <option value="Facebook">Facebook</option>
+                            <option value="Ecwid">Ecwid</option>
+                            <option value="AngularJS">AngularJS</option>
+                            <option value="AngularJS 2">AngularJS 2</option>
+                            <option value="ReactJS">ReactJS</option>
+                            <option value="Bootstrap 3.x">Bootstrap 3.x</option>
+                            <option value="Bootstrap 2.3.x">Bootstrap 2.3.x</option>
+                            <option value="Bootstrap 2.2.2">Bootstrap 2.2.2</option>
+                            <option value="Bootstrap 2.2.1">Bootstrap 2.2.1</option>
+                            <option value="Bootstrap 2.1.1">Bootstrap 2.1.1</option>
+                            <option value="Bootstrap 2.1.0">Bootstrap 2.1.0</option>
+                            <option value="Bootstrap 2.0.4">Bootstrap 2.0.4</option>
+                            <option value="Bootstrap 2.0.3">Bootstrap 2.0.3</option>
+                            <option value="Bootstrap 2.0.2">Bootstrap 2.0.2</option>
+                            <option value="Bootstrap 2.0.1">Bootstrap 2.0.1</option>
+                            <option value="Bootstrap 2.0">Bootstrap 2.0</option>
+                            <option value="Bootstrap 2.0">Bootstrap 3.0</option>
+                            <option value="Bootstrap 2.0">Bootstrap 4.0</option>
+                            <option value="Foundation 6">Foundation 6</option>
+                            <option value="Foundation 5">Foundation 5</option>
+                            <option value="Foundation 4">Foundation 4</option>
+                            </select>
+                        </div>
+                        <div class="input-field col s12 m6 l6">
+                            <span class="red-text small" id="FilesV"></span>
+                            <select multiple id="Files">
+                            <option value="" disabled>Files included</option>
+                            <option value="Layered PNG">Layered PNG</option>
+                            <option value="Layered PSD">Layered PSD</option>
+                            <option value="PHP Files">PHP Files</option>
+                            <option value="Ecwid CSS Files">Ecwid CSS Files</option>
+                            <option value="Muse File">Muse File</option>
+                            <option value="HBS Files">HBS Files</option>
+                            <option value="HTML Files">HTML Files</option>
+                            <option value="CSS Files">CSS Files</option>
+                            <option value="JS Files">JS Files</option>
+                            <option value="PSD">PSD</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12 m6 l6">
+                            <span class="red-text small" id="LayoutV"></span>
+                            <select id="Layout" class="required">                            
+                            <option value="" selected disabled>Layout type?</option>
+                            <option value="Fixed">Fixed</option>
+                            <option value="Liquid">Liquid</option>
+                            <option value="Responsive">Responsive</option>
+                            <option value="N/A">N/A</option>
+                       </select>
+                        </div>
+                        <div class="input-field col s12 m6 l6">
+                            <span class="red-text small" id="supportV"></span>
+                            <select id="support" class="required">
+                            <option value="" selected disabled>Item support?</option>
+                           <option value="yes">It will be supported</option>
+                            <option value="no">It won't be supported</option>                                                        
+                       </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <textarea id="description" placeholder="Add a description" class="materialize-textarea"></textarea>
+                        </div>
+                        <span class="red-text small" id="descriptionV"></span>
+                    </div>
+                </div>
+                <!--SECOND STEP-->
+                <div id="form-step-two" class="animated fadeIn">
+                    <div class="row">
+                        <!--Hidden file input for images-->
+                        <div class="hide">
+                            <!--FIRST IMAGE-->
+                            <div class="file-field input-field">
+                                <div class="btn">
+                                    <span>File</span>
+                                    <input id="fileReadImage" accept="image/*" type="file">
+                                </div>
+                                <div class="file-path-wrapper">
+                                    <input class="file-path validate" type="text">
+                                </div>
+                            </div>
+
+                            <div class="file-field input-field">
+                                <div class="btn">
+                                    <span>File</span>
+                                    <input id="fileReadImage2" accept="image/*" type="file">
+                                </div>
+                                <div class="file-path-wrapper">
+                                    <input class="file-path validate" type="text">
+                                </div>
+                            </div>
+
+                            <div class="file-field input-field">
+                                <div class="btn">
+                                    <span>File</span>
+                                    <input id="fileReadImage3" accept="image/*" type="file">
+                                </div>
+                                <div class="file-path-wrapper">
+                                    <input class="file-path validate" type="text">
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="col s12 m4 l4">
+                            <div class="card">
+                                <div class="card-image">
+                                    <!--IMAGE PREVISUALIZATION-->
+                                    <div id="previsualizeImg">
+                                        <img class="img-responsive animated fadeIn" id="readImage" style="max-width: 100%; max-height: 250px;" src="/img/2.gif">
+                                    </div>
+                                    <span class="card-title small">BigCode</span>
+                                </div>
+                                <div class="card-content center" style="min-height: 350px; transition: height 0.25s">
+                                    <h6 class="grey-text">Image 1</h6>
+                                    <br>
+                                    <div id="btn-container-readImg" class="center">
+                                        <a ng-click="triggerFileInp();" class="btn-floating btn-large waves-effect waves-light pulse purple darken-4 animated zoomIn"><i class="material-icons">add_a_photo</i></a>
+                                        <!--<a title="remove the image" style="position: absolute; top:15px; right:8px; cursor: pointer" ng-click="discardFileInp();"><i class="material-icons purple-text text-darken-4">cancel</i></a>-->
+                                    </div>
+                                    <br><br>
+                                    <h5 class="purple-text center small">Add some covers or screen shots for display on the site</h5>
+                                    <h5 class="grey-text center small">important!: image size must be 1280 x 720 pixels and each image must tittled with diferent
+                                        names</h5>
+                                    <span class="red-text" id="image1V"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col s12 m4 l4">
+                            <div class="card">
+                                <div class="card-image">
+                                    <!--IMAGE PREVISUALIZATION-->
+                                    <div id="previsualizeImg">
+                                        <img class="img-responsive animated fadeIn" id="readImage2" style="max-width: 100%; max-height: 250px;" src="/img/2.gif">
+                                    </div>
+                                    <span class="card-title small">BigCode</span>
+                                </div>
+                                <div class="card-content center" style="min-height: 350px; transition: height 0.25s">
+                                    <h6 class="grey-text">Image 2</h6>
+                                    <br>
+                                    <div id="btn-container-readImg" class="center">
+                                        <a ng-click="triggerFileInp2();" class="btn-floating btn-large waves-effect waves-light pulse purple darken-4 animated zoomIn"><i class="material-icons">add_a_photo</i></a>
+                                        <!--<a title="remove the image" style="position: absolute; top:15px; right:8px; cursor: pointer" ng-click="discardFileInp2();"><i class="material-icons purple-text text-darken-4">cancel</i></a>-->
+                                    </div>
+                                    <br><br>
+                                    <h5 class="purple-text center small">Add some covers or screen shots for display on the site</h5>
+                                    <h5 class="grey-text center small">important!: image size must be 1280 x 720 pixels and each image must tittled with diferent
+                                        names</h5>
+                                    <span class="red-text" id="image2V"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col s12 m4 l4">
+                            <div class="card">
+                                <div class="card-image">
+                                    <!--IMAGE PREVISUALIZATION-->
+                                    <div id="previsualizeImg">
+                                        <img class="img-responsive animated fadeIn" id="readImage3" src="/img/2.gif">
+                                    </div>
+                                    <span class="card-title small">BigCode</span>
+                                </div>
+                                <div class="card-content center" style="min-height: 350px; transition: height 0.25s">
+                                    <h6 class="grey-text">Image 3</h6>
+                                    <br>
+                                    <div id="btn-container-readImg" class="center">
+                                        <a ng-click="triggerFileInp3();" class="btn-floating btn-large waves-effect waves-light pulse purple darken-4 animated zoomIn"><i class="material-icons">add_a_photo</i></a>
+                                        <!--<a title="remove the image" style="position: absolute; top:15px; right:8px; cursor: pointer" ng-click="discardFileInp3();"><i class="material-icons purple-text text-darken-4">cancel</i></a>-->
+                                    </div>
+                                    <br><br>
+                                    <h5 class="purple-text center small">Add some covers or screen shots for display on the site</h5>
+                                    <h5 class="grey-text center small">important!: image size must be 1280 x 720 pixels and each image must tittled with diferent
+                                        names</h5>
+                                    <span class="red-text" id="image3V"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12">
+                            <!-- Upload  -->
+                            <form id="file-upload-form" class="uploader">
+                                <input id="file-upload" type="file" name="fileUpload" />
+
+                                <label for="file-upload" id="file-drag">
+                                    <img id="file-image" src="#" alt="Preview" class="hidden">
+                                    <div id="start">
+                                    <i class="fa fa-download" aria-hidden="true"></i>
+                                    <div>Select a file or just drag here</div>
+                                    <div id="notimage" class="hidden">Only .rar or .zip file extensions admited</div>
+                                    <span id="file-upload-btn" class="btn btn-large radius-button-purple-file">Select a file</span>
+                                    <br>
+                                    <span class="small purple-text darken-3">Add all the files in just one compressed zip | rar file</span>                                   
+                                    </div>
+                                    <div id="response" class="hidden">                                    
+                                     <br>                                    
+                                    <progress class="progress" id="file-progress" value="0">
+                                        <span>0</span>%
+                                    </progress>
+                                    </div>
+                                    <br>
+                                    <div id="messages"></div>
+                                    <div id="messages3"></div>
+                                    <div id="messages2" class="red-text"></div>
+                                     <span class="red-text" id="fileV"></span>
+                                </label>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <!--THIRD STEP form-third-step-->
+                <div id="form-third-step" class="animated fadeIn">
+
+                    <h2 class="center grey-text thin">Launch your product</h2>
+                    <h5 ng-hide="!productP" class="purple-text thin center">For free</h5>
+
+
+
+                    <div ng-hide="productP">
+                        <br><br>
+                        <div class="row container">
+                            <div class="center container">
+                                <p class="grey-text">
+                                    Let's set up the price for yor product, is very important not discuss your ideal price with others sellers. The final purchase
+                                    may be variable depending the type of product that you are about to upload (Your product:
+                                    <span id="typeTittleP" class="purple-text-color"></span>                                    ) You may calculate the earnings per download and the final purchase price bellow:
+                                </p>
+                            </div>
+                            <br><br>
+                            <div class="col s12 m10 l10">
+                                <label for="Brated">Your earning per download (Regular license) + {{gainNl}}</label>
+                                <input type="text" style="display: none" ng-model="regularL.value" />
+                                <rzslider rz-slider-model="regularL.value" rz-slider-options="regularL.options"></rzslider>
+                            </div>
+                            <div class="col s12 m2 l2">
+                                <div class="center">
+                                    <span class="grey-text small">Purchase price</span>
+                                    <h5 class="center grey-text">${{regularL.value+gainNl}}</h5>
+                                </div>
+                            </div>
+                            <!--<div class="col s6 m2 l2">
+                            <span class="grey-text small">Recommended purchase price</span>                         
+                             <h6 style="margin-top: 9%" class="center grey-text">$14 - $17</h6>
+                      </div>-->
+                        </div>
+
+                        <div class="row container">
+                            <br><br>
+                            <div class="col s12 m10 l10">
+                                <label for="Brated">Your earning per download (Extended license) + {{gainExt}}</label>
+                                <input type="text" style="display: none" ng-model="exetendedL.value" />
+                                <rzslider rz-slider-model="exetendedL.value" rz-slider-options="exetendedL.options"></rzslider>
+                            </div>
+
+                            <div class="col s12 m2 l2">
+                                <div class="center">
+                                    <span class="grey-text small">Purchase price</span>
+                                    <h5 class="center grey-text">${{exetendedL.value+gainExt}}</h5>
+                                </div>
+                            </div>
+                            <!--<div class="col s6 m4 l4 center">
+                            <span class="grey-text small">Recommended purchase price</span>                         
+                             <h5 class="center grey-text">$14 - $17</h5>
+                      </div>-->
+                        </div>
+                    </div>
+
+
+                    <br> <br> <br>
+                    <div class="row container center">
+                        <div class="card z-depth-1">
+                            <div class="card-content">
+                                <div class="col s12 m1 l1">
+                                    <i class="material-icons grey-text">photo_size_select_actual</i>
+                                </div>
+                                <div class="col s12 m9 l9">
+                                    <p class="small grey-text left-on-med-and-up center-on-small-only">Image 1: <span id="imageOne" class="purple-text"></span></p>
+                                    <p class="small purple-text left-on-med-and-up center-on-small-only">Your files are ready to be uploaed</p>
+                                    <p class="animated fadeIn red-text left-on-med-and-up center-on-small-only" id="messageUpFileErrImg1" class="red-text"></p>
+                                    <p class="animated fadeIn grey-text left-on-med-and-up center-on-small-only" id="messageUpFileSuccImg1"></p>
+                                </div>
+                                <div class="col s12 m2 l2">
+                                    <br class="hide-on-med-and-up">
+                                    <h5 class="blue-grey-text text-lighten-1 center-margin-on-small-only" id="persentProgressImg1">0%</h5>
+                                    <br>
+                                </div>
+                            </div>
+                            <!--PRELOADER PROGRESS-->
+                            <div class="progress">
+                                <div class="determinate" id="progressBarImg1"></div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row container center">
+                        <div class="card z-depth-1">
+                            <div class="card-content">
+                                <div class="col s12 m1 l1">
+                                    <i class="material-icons grey-text">photo_size_select_actual</i>
+                                </div>
+                                <div class="col s12 m9 l9">
+                                    <p class="small grey-text left-on-med-and-up center-on-small-only">Image 2: <span id="imageTwo" class="purple-text"></span></p>
+                                    <p class="small purple-text left-on-med-and-up center-on-small-only">Your files are ready to be uploaed</p>
+                                    <p class="animated fadeIn red-text left-on-med-and-up center-on-small-only" id="messageUpFileErrImg2" class="red-text"></p>
+                                    <p class="animated fadeIn grey-text left-on-med-and-up center-on-small-only" id="messageUpFileSuccImg2"></p>
+                                </div>
+                                <div class="col s12 m2 l2">
+                                    <br class="hide-on-med-and-up">
+                                    <h5 class="blue-grey-text text-lighten-1 center-margin-on-small-only" id="persentProgressImg2">0%</h5>
+                                    <br>
+                                </div>
+                            </div>
+                            <!--PRELOADER PROGRESS-->
+                            <div class="progress">
+                                <div class="determinate" id="progressBarImg2"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row container center">
+                        <div class="card z-depth-1">
+                            <div class="card-content">
+                                <div class="col s12 m1 l1">
+                                    <i class="material-icons grey-text">photo_size_select_actual</i>
+                                </div>
+                                <div class="col s12 m9 l9">
+                                    <p class="small grey-text left-on-med-and-up center-on-small-only">Image 3: <span id="imageThree" class="purple-text"></span></p>
+                                    <p class="small purple-text left-on-med-and-up center-on-small-only">Your files are ready to be uploaed</p>
+                                    <p class="animated fadeIn red-text left-on-med-and-up center-on-small-only" id="messageUpFileErrImg3" class="red-text"></p>
+                                    <p class="animated fadeIn grey-text left-on-med-and-up center-on-small-only" id="messageUpFileSuccImg3"></p>
+                                </div>
+                                <div class="col s12 m2 l2">
+                                    <br class="hide-on-med-and-up">
+                                    <h5 class="blue-grey-text text-lighten-1 center-margin-on-small-only" id="persentProgressImg3">0%</h5>
+                                    <br>
+                                </div>
+                            </div>
+                            <!--PRELOADER PROGRESS-->
+                            <div class="progress">
+                                <div class="determinate" id="progressBarImg3"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row container center">
+
+                        <div class="card z-depth-1">
+                            <div class="card-content">
+                                <div class="col s12 m1 l1">
+                                    <i class="material-icons grey-text">book</i>
+                                </div>
+                                <div class="col s12 m9 l9">
+                                    <p class="small grey-text left-on-med-and-up center-on-small-only">File zip or rar item: <span id="ItemFile" class="purple-text"></span></p>
+                                    <p class="small purple-text left-on-med-and-up center-on-small-only">Your files are ready to be uploaed</p>
+                                    <p class="animated fadeIn red-text left-on-med-and-up center-on-small-only" id="messageUpFileErr" class="red-text"></p>
+                                    <p class="animated fadeIn grey-text left-on-med-and-up center-on-small-only" id="messageUpFileSucc"></p>
+                                </div>
+                                <div class="col s12 m2 l2">
+                                    <br class="hide-on-med-and-up">
+                                    <h5 class="blue-grey-text text-lighten-1 center-margin-on-small-only" id="persentProgress">0%</h5>
+                                    <br>
+                                </div>
+                            </div>
+                            <!--PRELOADER PROGRESS-->
+                            <div class="progress">
+                                <div class="determinate" id="progressBar"></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <br><br>
+
+                <div id="preloaderUpload" class="row animated fadeIn center">
+                    <h6 id="face1" class="purple-text animated fadeInUp">Saving item...</h6>
+                    <h6 id="face2" class="purple-text animated fadeInUp">Publishing on your "Created items buctket"...</h6>
+                    <div class="progress">
+                        <div class="indeterminate"></div>
+                    </div>
+                </div>
+
+                <div id="UploadButtons" class="row  animated fadeIn">
+                    <div id="first-step-next" class="right-align">
+                        <button ng-click="next();" type="submit" class="waves-effect waves-light btn btn-large radius-button-purple animated fadeIn">1.Next <i class="material-icons right">keyboard_arrow_right</i></button>
+                    </div>
+                    <div id="second-step-next" class="right-align">
+                        <button ng-click="next2();" type="submit" class="waves-effect waves-light btn btn-large radius-button-purple animated fadeIn">2.Next <i class="material-icons right">keyboard_arrow_right</i></button>
+                    </div>
+                    <div id="third-step-next" class="right-align">
+                        <button ng-click="uploadProduct();" ng-disabled="endUpload" type="submit" class="waves-effect waves-light btn btn-large radius-button-purple animated fadeIn">3.Upload product <i class="material-icons right">cloud_upload</i></button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

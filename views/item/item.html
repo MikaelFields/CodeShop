@@ -1,0 +1,243 @@
+<!--PRELOADER-->
+<div id="preloaderShown" class="center animated fadeIn">
+
+<div class="row">
+    <div class="col s12 m4 l5"></div>
+    <div class="col s12 m4 l2">
+        <div class="preloader-position-a">
+            <img src="/img/logov2.png" style="width: 100px" class="responsive-img" alt="CodePro">
+            <br><br>
+            <div class="progress">
+                <div class="indeterminate"></div>
+            </div>
+
+            <h6 class="grey-text thin">Let's buy it! </h6>
+        </div>
+    </div>
+    <div class="col s12 m4 l5"></div>
+</div>       
+</div>
+
+<div id="contentDataShown" class="animated fadeIn">
+
+<div>
+
+   <nav class="purple-custom " style="box-shadow: none">
+        <div class="nav-wrapper container">
+            <a href="#!landing" class="brand-logo"><img src="/img/logo.png" class="responsive-img" /></a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a class="small" href="#!landing"><i class="material-icons left">shop</i>Shop</a></li>
+                <li><a class="small" href=""><i class="material-icons left">shopping_basket</i>Sell a product</a></li>
+                <li><a class="white-text small" href="" title="{{buctket}} items on your cart"><i  class="material-icons white-text left">shopping_cart</i> {{cartButcket}}</a></li>
+                <li id="signUp"><a class="small" href="#!register"><i class="material-icons left">person_add</i>Sign Up</a></li>
+                <li id="signIn"><a class="small" href="#!login"><i class="material-icons left">person</i>Sign In</a></li>
+                <li id="userName"><a class="small" href="#!profile"><i class="material-icons left">account_circle</i><span id="name"></span></a></li>
+                <li id="signOut"><a ng-click="signOutF();" class="small" href="#!login"><i class="material-icons left">power_settings_new</i>Sign Out</a></li>
+                
+            </ul>
+        </div>
+    </nav>
+
+    <div class="row">
+        <div class="cover-landign center" style="height: 200px">
+            <br><br>
+            <div class="row">
+                <div class="col s12 m12 l12">
+                    <img src="/img/bag-icon.png" class="responsive-img hide-on-small-only item-bag-icon" />
+                </div>
+                <div class="col s12 m12 l12">
+                    <h5 class="white-text thin"> <span class="amber-text"> {{authUser}}</span> Let's buy it! </h5>
+                </div>
+            </div>
+            <br>
+        </div>
+        <section style="position: relative; overflow: hidden">
+
+            <div class="col s12 m12 l1"></div>
+            <div class="col s12 m12 l5">
+           
+                <div class="slideshow-container" style="margin-top: 17%">
+                    <div id="carouselC"></div>
+                    <a class="prev" ng-click="plusSlides(-1);">&#10094;</a>
+                    <a class="next" ng-click="plusSlides(1);">&#10095;</a>                  
+                </div>
+                <br>
+
+                <div style="text-align:center">
+                    <span class="dot" ng-click="currentSlide(1);"></span>
+                    <span class="dot" ng-click="currentSlide(2);"></span>
+                    <span class="dot" ng-click="currentSlide(3);"></span>
+                </div>
+            </div>
+            <div class="col s12 m12 l5">
+                <div class="center" style="margin-top: 25%">
+                    <h5 class="purple-text-color">{{tittle}}</h5>
+                    <div class="container">
+                        <h6>
+                            Author: {{author}}
+                        </h6>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col s2"></div>
+                        <div class="col s8">
+                            <div class="col s12 m12 l4">
+                                <h5 class="purple-text-color"><i class="material-icons">get_app</i>{{views}}</h5>
+                            </div>
+                            <div class="col s12 m12 l4">
+                                <h5 class="purple-text-color"><i class="material-icons">attach_money</i>{{priceL}}</h5>
+                            </div>
+                            <div class="col s12 m12 l4">
+                                <h5 class="purple-text-color"><i class="material-icons cursor">thumb_up</i> {{likes[0].length}}</h5>
+                            </div>
+                        </div>
+                        <div class="col s2">
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col s12 m12 l3"></div>
+                        <div class="col s12 m12 l6">
+                            <br>
+                            <a class="waves-effect waves-light purple-c-color btn btn-large"><i class="material-icons left">shopping_cart</i>Buy it now</a>
+                            <br>
+                            <br>
+                            <a class="waves-effect waves-light purple-c-color btn btn-large radius-button-purple"><i class="material-icons left">add_shopping_cart</i>Add to cart</a>
+                            <div style="padding-top: 99%;" class="hide-on-med-and-down"></div>
+                        </div>
+                        <div class="col s12 m12 l3"></div>
+                    </div>
+                    <br><br>
+                </div>
+            </div>
+            <div class="col s12 m12 l1"></div>
+
+            <div class="diagonal"></div>
+        </section>
+    </div>
+
+
+
+    <section class="purple-item-color" style="height: auto; position: relative; overflow: hidden; margin-top: -20px">
+        <br><br>
+        <!--PRODUCT DESCRIPTION-->
+        <h4 class="white-text center">Product description</h4>
+        <div class="row">
+            <div class="col s12 m12 l3"></div>
+            <div class="col s12 m12 l6">
+                <p class="white-text center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris convallis odio eget enim convallis, non sollicitudin
+                    augue pharetra. Quisque porttitor elit non erat sagittis egestas. </p>
+            </div>
+            <div class="col s12 m12 l3"></div>
+        </div>
+        <div class="row center">
+            <br>
+            <h5 class="white-text">Product content</h5>
+
+            <br> <br>
+            <div class="col s12 m12 l2"></div>
+            <div class="col s12 m12 l8">
+                <div class="card purple-item-color z-depth-4">
+                    <div class="card-content">
+                        <table class=" centered white-text responsive-table">
+                            <thead>
+                                <tr>
+                                    <th>Feature</th>
+                                    <th>Item status</th>
+                                    <th>Details</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>                                         
+                                          <h6>Fully responsive</h6>
+                                        </td>
+                                    <td> <i class="material-icons white-text">check</i></td>
+                                    <td>       
+                                         <!--<i class="material-icons" id="large-icon">phonelink</i>                                                                        -->
+                                        <h6 class="white-text">Mobile devices, Laptop & desktop devices, Tablet devices</h6>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Compatible Browsers</td>
+                                    <td><i class="material-icons white-text">check</i></td>
+                                    <td>
+                                        <!--<i class="material-icons" title="" id="large-icon">language</i>-->
+                                        <h6 class="white-text truncate">Firefox, Chrome, Opera, Internet explorer</h6>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Item documented</td>
+                                    <td><i class="material-icons white-text">check</i>
+                                    <td>
+                                        <!--<i class="material-icons" id="large-icon">assignment</i>-->
+                                        <h6>Well documentated</h6>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Item rating</td>
+                                    <td><i class="material-icons white-text">check</i></td>
+                                    <td>
+                                        <!--<span><i class="fa fa-star-o fa-full" id="large-icon"></i></span>-->
+                                        <h6 class="white-text">5 stars</h6>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Creation day</td>
+                                    <td><i class="material-icons white-text">check</i></td>
+                                    <td>
+                                        <!--<i class="material-icons" id="large-icon">info_outline</i>-->
+                                        <h6 class="white-text">23/10/1989</h6>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m12 l2"></div>
+
+        </div>
+
+        <div class="row">
+          <div class="col s12 m12 l1"></div>
+            <div class="col s12 m12 l10">
+                 
+            </div>
+           <div class="col s12 m12 l1"></div>            
+        </div>
+
+        <div class="space"></div>
+
+    </section>
+
+
+
+
+    <footer class="page-footer purple-c-color">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">Bigcode market</h5>
+                    <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <ul>
+                        <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                © 2014 Copyright Text
+                <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+            </div>
+        </div>
+    </footer>
+
+</div>
+
+</div>

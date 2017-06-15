@@ -1,0 +1,147 @@
+SERVER
+/*USING MULTER D*/ 
+var multer = require('multer');
+// var storage = multer.diskStorage({
+//         destination: function (req, file, cb) {
+//         cb(null, './public/img/');
+//     },
+//     filename: function (req, file, cb) {
+//         if (!file.originalname.match(/\.(jpeg|jpg|png)$/)) {
+//             var err = new Error();
+//             err.code = filetype;
+//             return cb(err);
+//         } else {
+//             cb(null, Date.now() + '_' + file.originalname);
+//         }
+//     }
+// });
+
+var storage = require('multer-gridfs-storage')({
+   url: 'mongodb://scrservices:Development2016**@cluster0-shard-00-00-hupjf.mongodb.net:27017,cluster0-shard-00-01-hupjf.mongodb.net:27017,cluster0-shard-00-02-hupjf.mongodb.net:27017/market?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin'
+});
+
+var upload = multer({
+     storage: storage,
+     limits: {fileSize: 100000000} 
+  }).single('avatarPicture');
+
+app.post('/upload', function (req, res) {
+    
+    upload(req, res, function (err) {
+        console.log(req.file);//file data from client
+          console.log(req.file.grid._id);//file data from client
+        if (err) {
+            // An error occurred when uploading
+            if (err.code === 'LIMIT_FILE_SIZE') {
+                res.send("File image is to large");
+            } else if (err.code === 'filetype') {
+                res.send("file type is invalid. must be png, jpeg or jpg");
+            } else {
+                console.log(err);
+                res.send("file was not able to be uploaded");
+            }
+        } else {
+            if (!req.file) {
+                res.send("file was not selected");
+            } else {
+                res.send("file was uploaded");
+            }
+        }
+        // Everything went fine
+    });
+});
+
+var ShemaUsers = require('./models/user.js').users;
+var cookieParser = require('cookie-parser');
+
+app.use(cookieParser());
+var session = require('express-session'); //express session allows to store sesions
+var MongoStore = require('connect-mongo')(session);
+var bcrypt = require('bcryptjs');
+
+
+CLIENT ANGULAR CONTROLLER
+
+
+//CUSTOM DIRECTIVE TO GET THE INPUT FILE ELEMENT AND PARSE IT
+    .directive('fileModel', ['$parse', function($parse) {
+    return {
+        restrict: 'A',
+        link: function(scope, element, attrs) {
+            var parsedFile = $parse(attrs.fileModel);
+            var parsedFileSetter = parsedFile.assign;
+
+            element.bind('change', function() {
+                scope.$apply(function() {
+                    parsedFileSetter(scope, element[0].files[0]);
+                });
+            });
+        }
+    };
+}])
+ //SERVICE TO ADD TO MULTIPARTFORM THE FILE ELEMENT AND SENT IT TO THE SERVER
+    .service('multipartForm', function($http) {
+    this.upload = function(file) {
+        var fd = new FormData();
+        fd.append('avatarPicture', file.upload);
+        return $http.post('/upload/', fd, {
+            transformRequest: angular.identity,
+            headers: { 'Content-Type': undefined }
+        });
+    };
+
+});
+
+  function profileController($http, $scope, $window, $timeout, multipartForm) {
+  
+  
+
+//UPLOAD AVATAR PIC FUNCTION
+$scope.file = {};
+$scope.uploadFile = function(){
+// var file = $scope.file;
+// console.log(file);
+// var uploadUrl = '/upload';
+// multipartForm.post(uploadUrl, file);
+
+multipartForm.upload($scope.file).then(function(res){
+  
+  console.log("result: " +  res.data);
+  //  if(res.data == "file was uploaded"){
+  //  console.log("success");
+  //  } else{
+  //     console.log("not success");
+  //  }
+});
+
+};
+  
+  
+  
+  }])
+
+
+
+  HTML
+
+
+      <form ng-submit="uploadFile();">                                      
+                        <div class="row">
+                                <div class="center">
+                                    <img class="img-responsive animated fadeIn" id="blah" style="max-width: 100%; max-height: 350px;" src="">
+                                </div>
+                                <div class="col s12 m12 l12">
+                                    <div class="file-field input-field">
+                                        <div class="btn radius-button-purple">
+                                            <span>Upload profile pic</span>
+                                            <input id="nameImg" type="file" name="avatarPicture" file-model="file.upload" accept="image/*">
+                                        </div>
+                                        <div class="file-path-wrapper ">
+                                            <input placeholder="Add a picture profile" class="file-path validate" type="text">
+                                        </div>
+                                        <span class="right">Add a picture profile</span>
+                                    </div>
+                                </div>
+                            </div>
+                              <button type="submit" class="waves-effect waves-light btn btn-large radius-button-purple animated fadeIn" href="">Save data</button> 
+                                    </form>

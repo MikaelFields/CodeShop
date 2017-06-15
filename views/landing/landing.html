@@ -1,0 +1,247 @@
+<!--PRELOADER-->
+<div id="preloaderShown" class="center animated fadeIn">
+    <!--<div class="preloader-wrapper big active preloader-position">
+        <div class="spinner-layer spinner-red-only">
+            <div class="circle-clipper left">
+                <div class="circle"></div>
+            </div>
+            <div class="gap-patch">
+                <div class="circle"></div>
+            </div>
+            <div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+        </div>
+    </div>-->
+<div class="row">
+    <div class="col s12 m4 l5"></div>
+    <div class="col s12 m4 l2">
+        <div class="preloader-position-a">
+            <img src="/img/logov2.png" style="width: 100px" class="responsive-img" alt="CodePro">
+            <br><br>
+            <div class="progress">
+                <div class="indeterminate"></div>
+            </div>
+
+            <h6 class="grey-text thin">find inspiration & download resources</h6>
+        </div>
+    </div>
+    <div class="col s12 m4 l5"></div>
+</div>       
+</div>
+
+<!--SIDEVAR, this element most be outsite of the hiden content body-->
+<button type="" class="button-collapse show-on-large hide" data-activates="slide-out"></button>
+<ul id="slide-out" class="side-nav">
+    <li>
+        <div class="userView">
+            <div class="background">
+                <img src="/img/cover profile.png">
+            </div>
+            <a href="#!profile"><img class="circle" src="{{avatarPicture}}"></a>
+            <a href="#!profile"><span class="white-text name">{{authUser}}</span></a>
+            <a href=""><span class="white-text email">{{email}}</span></a>
+        </div>
+    </li>
+    <li><a href="#!profile" style="font-size: 80%"><i class="material-icons grey-text left">account_circle</i> Your profile</a></li>
+    <li class="no-padding">
+        <ul class="collapsible collapsible-accordion">
+            <li>
+                <a class="collapsible-header" style="font-size: 80%">Status<i class="material-icons" style="margin-left: 18px">arrow_drop_down</i></a>
+                <div class="collapsible-body">
+                    <ul>
+                        <li><a href="" style="font-size: 80%"><i class="material-icons grey-text left">monetization_on</i> Your earnings <span class="purple-text">{{earnings}}</span></a></li>
+                        <li><a href="" style="font-size: 80%"><i class="material-icons grey-text left">attach_money</i>Your sales <span class="purple-text">{{sales}}</span></a></li>
+                        <li><a href="" style="font-size: 80%"><i  class="material-icons grey-text left">shopping_cart</i> Cart buctket <span class="purple-text">{{cartButcket}}</span></a></li>
+                        <li><a href="" style="font-size: 80%"><i class="material-icons grey-text left">lightbulb_outline</i> Created items <span class="purple-text">{{itemsNumber}}</span></a></li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </li>
+    <li><a href="" style="font-size: 80%"><i class="material-icons grey-text left">list</i> Collection items <span class="purple-text">{{collectNumber}}</span></a></li>
+    <li><a href="" style="font-size: 80%"><i class="material-icons grey-text left">stars</i> Your followers <span class="purple-text">{{followersNumber}}</span></a></li>
+    <li><a href="" style="font-size: 80%"><i class="material-icons grey-text left">star_rate</i> Following <span class="purple-text">{{followingNumber}}</span></a></li>
+    <li><a href="" style="font-size: 80%"><i class="material-icons grey-text left">thumb_up</i> Likes <span class="purple-text">{{authorLikes}}</span></a></li>
+    <li>
+        <div class="divider"></div>
+    </li>
+    <li><a ng-click="signOutF();" style="font-size: 80%" class="waves-effect" href="#!login"><i class="material-icons">power_settings_new</i> Sign Out</a></li>
+</ul>
+
+<!--SIDEVAR, this element most be outsite of the hiden content body-->
+<button type="" class="button-collapse-notif show-on-large hide" data-activates="notications"></button>
+<ul id="notications" class="side-nav">
+    <li>
+        <div class="userView">
+            <div class="background">
+                <img src="/img/cover profile.png">
+            </div>       
+            <a><span class="white-text email"><i class="material-icons left white-text">notifications_none</i>Notifications panel</span></a>
+        </div>
+    </li>
+    <li class="no-padding">
+        <li><a href=""></a></li>
+    </li>
+</ul>
+
+
+<div id="contentDataShown" class="animated fadeIn">
+    <div>
+        <!--MAIN NAVBAR-->
+        <nav class="purple-custom " style="box-shadow: none">
+            <div class="nav-wrapper container">
+                <a href="#!landing" class="brand-logo"><img src="/img/logo.png" class="responsive-img" /></a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li class="active"><a class="small" href="#!landing"><i class="material-icons left">shop</i>Shop</a></li>
+                    <li><a class="small" href="#!SellProducts"><i class="material-icons left">shopping_basket</i>Sell a product</a></li>
+                    <li id="signUp"><a class="small" href="#!register"><i class="material-icons left">person_add</i>Sign Up</a></li>
+                    <li id="signIn"><a class="small" href="#!login"><i class="material-icons left">person</i>Sign In</a></li>
+                    <li id="notifBar" ><a ng-click="OpenNotif();"><i class="material-icons">notifications</i></a></li>
+                    <li id="userName"><a ng-click="OpenMenu();" class="small" href=""><i class="material-icons left">account_circle</i><span class="amber-text">{{authUser}}</span></a></li>                     
+                </ul>
+            </div>
+        </nav>
+        <!--SECUNDARY NAVBAR-->
+        <nav class="white">
+            <div class="nav-wrapper container">
+                <ul id="nav-mobile" class="left hide-on-med-and-down">
+                    <li><a class="grey-text small" href="" title="{{cartButcket}} items on your cart"><i  class="material-icons grey-text left">shopping_cart</i> {{cartButcket}}</a></li>
+                    <li><a class="grey-text small" href=""><i class="material-icons">view_list</i></a></li>
+                    <li class="active"><a class="grey-text small" href=""><i class="material-icons">view_module</i></a></li>
+                </ul>
+            </div>
+        </nav>
+
+
+        <div class="blue-grey lighten-5">
+
+            <div class=row>
+                <div class="cover-landign center" style="height: auto">
+                    <br><br>
+                    <h5 class="white-text thin">Hi, <span class="amber-text">{{authUser}}</span> explore, find inspiration & <br> download resources
+                        to create your own.</h5>
+                    <br>
+                    <div class="row">
+                        <div class="col s12 m12 l4"></div>
+                        <div class="col s12 m12 l4">
+                            <div class="search-main" style="height: 60px; border-radius: 100px">
+                                <div class="row">
+                                    <div class="input-field col s1">
+                                        <i class="material-icons grey-text" style="margin-top: 2px">search</i>
+                                    </div>
+                                    <div class="input-field col s11">
+                                        <input id="superS" class="grey-text" style="position:relative; margin-top: -7px" placeholder="search...">
+                                    </div>
+                                </div>
+                            </div>                            
+                                <div style="height: 80px"></div>                         
+                        </div>
+                        <div class="col s12 m12 l4"></div>
+                    </div>
+                </div>
+                <div class="col s12 m12 l2 hide-on-med-and-down">
+                    <br><br>
+                    <ul class="collection with-header no-border">
+                        <li class="collection-header">
+                            <h6><i class="material-icons">sort</i> Sort and filter by:</h6>
+                        </li>
+                        <li class="collection-item center" id="filter-pad">
+                            <label for="Brated">Newest items</label>
+                            <input type="text" style="display: none" ng-model="Newest.value" />
+                            <rzslider rz-slider-model="Newest.value" rz-slider-options="Newest.options"></rzslider>
+                        </li>
+                        <li class="collection-item center" id="filter-pad">
+                            <label for="Brated">Best rated</label>
+                            <input type="text" style="display: none" ng-model="Rated.value" />
+                            <rzslider rz-slider-model="Rated.value" rz-slider-options="Rated.options"></rzslider>
+                        </li>
+                        <li class="collection-item center" id="filter-pad">
+                            <label for="Brated">Best sellers</label>
+                            <input type="text" style="display: none" ng-model="Seller.value" />
+                            <rzslider rz-slider-model="Seller.value" rz-slider-options="Seller.options"></rzslider>
+                        </li>
+                        <li class="collection-item center" id="filter-pad">
+                            <label for="Brated">Price order</label>
+                            <input type="text" style="display: none" ng-model="LowTo.value" />
+                            <rzslider rz-slider-model="LowTo.value" rz-slider-options="LowTo.options"></rzslider>
+                        </li>
+                        <li class="collection-item center" id="filter-pad">
+                            <label for="Brated">Trending items</label>
+                            <input type="text" style="display: none" ng-model="Trending.value" />
+                            <rzslider rz-slider-model="Trending.value" rz-slider-options="Trending.options"></rzslider>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col s12 m12 l10">
+                    <br><br>
+                <div class="row">
+                    <div class="col s12 m4 l3" ng-repeat="item in items">
+                        <br><br>
+                        <div class="card item-card white grey-text">
+                            <div class="card-image  card-img-position">
+                                <a href=""><img class="img-item" src="{{item.image1Url}}"></a>
+                                <div class="overlay">
+                                    <div class="row">
+                                        <div class="col s2 m2 l2">
+                                            <h6 class="white-text smaller left"> <i class="material-icons grey-text">monetization_on</i><br> {{item.priceL}}</h6>
+                                        </div>
+                                        <div class="col s2 m2 l2">
+                                            <h6 class="white-text smaller left"> <i class="material-icons grey-text">get_app</i><br> {{item.views}}</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a class="btn-floating halfway-fab waves-effect white no-shadow" title="Add to collection"><i class="material-icons indigo-text">loyalty</i></a>
+                                <a ng-click="takeId(item._id);" class="btn-floating halfway-fab waves-effect white no-shadow" style="margin-right: 45px"
+                                    title="View this product"><i class="material-icons indigo-text">open_in_new</i> </a>
+                                <a ng-disabled="btnLike" ng-show="likeBtn" ng-click="ThumbUp(item._id, $index, item.likes);" style="margin-right: 90px" title="Like!"
+                                    class="btn-floating halfway-fab waves-effect white no-shadow"><i class="material-icons indigo-text">thumb_up</i> </a>
+                            </div>
+                            <div class="card-content no-padding grey-text">
+                                <ul class="collection no-border ">
+                                    <li class="collection-item avatar">
+
+                                        <img title="{{product.author}}" src="{{item.userItemPic}}" alt="" class="circle responsive-img">
+                                        <span style="max-width: 150px" class="title truncate small">{{item.tittle}}</span>
+                                        <p class="truncate small">{{item.author}}</p>
+
+                                        <a id="{{$index}}" class="secondary-content animated bounceIn indigo-text"style="font-size: 15px"><span class="amber-text">{{item.likes.length}}</span> like(s)</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+
+            <footer class="page-footer purple-c-color">
+                <div class="container">
+                    <div class="row">
+                        <div class="col l6 s12">
+                            <h5 class="white-text">Footer Content</h5>
+                            <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+                        </div>
+                        <div class="col l4 offset-l2 s12">
+                            <h5 class="white-text">Links</h5>
+                            <ul>
+                                <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+                                <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+                                <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+                                <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-copyright">
+                    <div class="container">
+                        © 2014 Copyright Text
+                        <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+                    </div>
+                </div>
+            </footer>
+
+
+        </div>
+    </div>

@@ -1,0 +1,373 @@
+<!-- Modal Structure -->
+<div id="modalProfPic" class="modal">
+    <div class="modal-content">
+        <!--<h4 class="center purple-text">Change your frofile pic</h4>-->
+        <br>
+        <br>
+        <div class="center">
+
+            <div class="row">
+                <div class="col s12 m12 l4">
+                    <div class="center" id="inputfileUp" style="height: auto; width: 100%; cursor: pointer" ng-click="triggerFileInp();">
+                        <i class="material-icons grey-text" style="font-size: 50px; margin-top: 60px">cloud_upload</i>
+                        <h6 class="grey-text">Click to Add an image</h6>
+                        <label class="small grey-text">Picture Size must be 400 x 400 pixels</label>
+                    </div>
+                    <br>
+                    <!--HIDDEN INPUT FILE-->
+                    <div class="file-field input-field">
+                        <div class="btn radius-button-purple hide">
+                            <span>Add an image</span>
+                            <input id="nameImg" type="file" name="file" accept="image/*">
+                        </div>
+                        <div class="file-path-wrapper center ">
+                            <input disabled style="text-align: center" value="Select a file" class="file-path" type="text">
+                        </div>
+                    </div>
+                    <br>
+                    <a style="margin-top:2%" id="protectedBtn" ng-click="validateUp();" class="waves-effect waves-light btn radius-button-purple animated fadeIn" ng-disabled="protectedBtn"
+                        href=""><i class="material-icons left">camera</i>Finish</a>
+                    
+                    <a style="margin-top:2%" class="waves-effect waves-light btn radius-button-purple animated fadeIn modal-action modal-close"  ng-disabled="protectedBtn" href="">Go back</a>
+                    <br> <br>
+                    <span class="animated fadeIn red-text" id="messagePic" class="red-text"></span>
+
+                </div>
+                <div class="col s12 m12 l8">
+                    <div class="center" style="width: 100%; min-height: 350px; border: solid; border-width: 2px; border-color:#b0bec5 ; border-radius: 25px; border: dotted">
+                        <br>
+                        <!--IMAGE PREVISUALIZATION-->
+                        <div id="previsualizeImg">
+                            <img class="img-responsive animated fadeIn" id="blah" style="max-width: 80%; max-height: 305px;" src="{{avatarPicture}}">
+                        </div>
+                        <!--PRELOADER PROGRESS-->
+                        <div id="UploadPreloader" class="row container center animated fadeIn" style="margin-top: 110px">
+                            <div class="col s12">
+                                <h3 class="grey-text" id="persentProgress"></h3>
+                                <div class="progress">
+                                    <div class="determinate" id="progressBar"></div>
+                                </div>
+                                <br>
+                                <h6 class="grey-text" id="messageProgress"></h6>
+                            </div>
+                        </div>
+                        <br><br>
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    <!--<div class="modal-footer">
+    </div>-->
+</div>
+
+
+
+<!--PRELOADER-->
+<div id="preloaderShown" class="center animated fadeIn">
+
+    <div class="row">
+        <div class="col s12 m4 l5"></div>
+        <div class="col s12 m4 l2">
+            <div class="preloader-position-a">
+                <img src="/img/logov2.png" style="width: 100px" class="responsive-img" alt="CodePro">
+                <br><br>
+                <div class="progress">
+                    <div class="indeterminate"></div>
+                </div>
+
+                <h6 class="grey-text thin">Manage your profile</h6>
+            </div>
+        </div>
+        <div class="col s12 m4 l5"></div>
+    </div>
+</div>
+
+<!--SIDEVAR, this element most be outsite of the hiden content body-->
+<button type="" class="button-collapse-notif show-on-large hide" data-activates="notications"></button>
+<ul id="notications" class="side-nav">
+    <li>
+        <div class="userView">
+            <div class="background">
+                <img src="/img/cover profile.png">
+            </div>       
+            <a><span class="white-text email"><i class="material-icons left white-text">notifications_none</i>Notifications panel</span></a>
+        </div>
+    </li>
+    <li class="no-padding">
+        <li><a href=""></a></li>
+    </li>
+</ul>
+
+
+<div id="contentDataShown" class="animated fadeIn">
+
+    <nav class="purple-custom " style="box-shadow: none">
+        <div class="nav-wrapper container">
+            <a href="#!landing" class="brand-logo"><img src="/img/logo.png" class="responsive-img" /></a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+
+                <li><a class="small" href="#!landing"><i class="material-icons left">shop</i>Shop</a></li>
+                <li><a class="white-text small" href="" title="{{cartButcket}} items on your cart"><i class="material-icons white-text left">shopping_cart</i> {{cartButcket}}</a></li>
+                <li><a class="small" href="#!SellProducts"><i class="material-icons left">shopping_basket</i>Sell a product</a></li>
+                <li id="notifBar" ><a ng-click="OpenNotif();"><i class="material-icons">notifications</i></a></li>
+                <li class="active"><a id="userName" class="small" href="#!profile"><i class="material-icons left">account_circle</i>{{authUser}}</a></li>
+                <li><a ng-click="signOutF();" style="font-size: 80%" class="waves-effect" href="#!login"><i class="material-icons left">power_settings_new</i> Sign Out</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- Dropdown Structure -->
+    <ul id="dropdown1" class="dropdown-content">
+        <li><a href="#!profile"><i class="material-icons left">account_circle</i>profile</a></li>
+        <li><a ng-click="" href="">Sell item</a></li>
+        <li class="divider"></li>
+        <li><a ng-click="signOutF();" href="#!login"> <i class="material-icons left">power_settings_new</i> Sign Out</a></li>
+    </ul>
+
+    
+
+    <br><br><br>
+
+    <div class="row">
+        <div class="col s12 m1 l1"></div>
+        <div class="col s12 m10 l10">
+            <div class="card no-shadow" style="max-width: 1100px; margin: 0% auto">
+
+                <div class="cover-profile" style="height: 300px; position: relative; overflow: hidden">
+                    <div class="card-content">
+                        <h5 class="white-text thin animated fadeIn">{{profession}}</h5>
+                        <h5 class="white-text thin animated fadeInUp">Sales: {{sales}}</h5>
+
+                    </div>
+                    <div class="diagonal-prof"></div>
+                </div>
+
+                <div class="card-content center-align grey-text">
+
+                    <div class="hover-p">
+
+                        <img src="{{avatarPicture}}" class="responsive-img animated fadeIn avatar-profile" />
+                        <a ng-click="openProfPic();" class="btn-floating btn waves-effect waves-light white avatar-icon"><i class="material-icons grey-text">linked_camera</i></a>
+
+                    </div>
+
+
+                    <div class="center">
+                        <h4 class="grey-text thin animated fadeIn">{{authUser}}</h4>
+                        <div class="container">
+                            <p>{{about}}</p>
+                        </div>
+
+                        <br>
+                        <div class="row center container">
+                            <ul class="social"></ul>
+
+                        </div>
+                        <br>
+
+                        <br>
+                    </div>
+
+                </div>
+                <div class="card-tabs">
+                    <ul class="tabs grey lighten-4 tabs-fixed-width">
+                        <li class="tab"><a class="active purple-text-color" href="#items">Your items buctket<span style="margin-left: 8px" class="blue-text"></span></a></li>
+                        <li class="tab"><a class="purple-text-color" href="#Cart">Cart buctket <span style="margin-left: 8px" class="blue-text"></span></a></li>
+                        <li class="tab"><a class="purple-text-color" href="#Collections">Collection items <span style="margin-left: 8px" class="blue-text"></span></a></li>
+                        <li class="tab"><a class="purple-text-color" href="#Followers">Followers <span style="margin-left: 8px" class="blue-text"></span></a></li>
+                        <li class="tab"><a class="purple-text-color" href="#Following">Following <span style="margin-left: 8px" class="blue-text"></span></a></li>
+                        <li class="tab"><a class="purple-text-color active" href="#edit">Edit you profile</a></li>
+                    </ul>
+                </div>
+                <div class="card-content grey lighten-4">
+
+            <div id="items">
+                 <div class="row">
+                    <div class="col s12 m4 l4" ng-repeat="item in items">
+                        <br><br>
+                        <div class="card item-card white grey-text">
+                            <div class="card-image  card-img-position">
+                                <a href=""><img class="img-item" src="{{item.image1Url}}"></a>
+                                <div class="overlay">
+                                    <div class="row">
+                                        <div class="col s2 m2 l2">
+                                            <h6 class="white-text smaller left"> <i class="material-icons grey-text">monetization_on</i><br> {{item.priceL}}</h6>
+                                        </div>
+                                        <div class="col s2 m2 l2">
+                                            <h6 class="white-text smaller left"> <i class="material-icons grey-text">get_app</i><br> {{item.views}}</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a class="btn-floating halfway-fab waves-effect white no-shadow" title="Add to collection"><i class="material-icons indigo-text">loyalty</i></a>
+                                <a ng-click="seeItem(item._id);" class="btn-floating halfway-fab waves-effect white no-shadow" style="margin-right: 45px"
+                                    title="View this product"><i class="material-icons indigo-text">open_in_new</i> </a>
+                                <a ng-disabled="btnLike" ng-show="likeBtn" ng-click="ThumbUp(item._id, $index, item.likes);" style="margin-right: 90px" title="Like!"
+                                    class="btn-floating halfway-fab waves-effect white no-shadow"><i class="material-icons indigo-text">thumb_up</i> </a>
+                            </div>
+                            <div class="card-content no-padding grey-text">
+                                <ul class="collection no-border ">
+                                    <li class="collection-item avatar">
+
+                                        <img title="{{product.author}}" src="{{item.userItemPic}}" alt="" class="circle responsive-img">
+                                        <span style="max-width: 150px" class="title truncate small">{{item.tittle}}</span>
+                                        <p class="truncate small">{{item.author}}</p>
+
+                                        <a id="{{$index}}" class="secondary-content animated fadeInUp indigo-text"style="font-size: 15px"><span class="amber-text">{{item.likes.length}}</span> like(s)</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                     <!--<div ng-repeat="itemFile in ItemFiles | limitTo:1">
+                                        <span style="font-size: 8px" class="card-title">{{itemFile}}</span>
+                     </div>-->     
+
+                    </div>
+                    <div id="Collections">Collections</div>
+                    <div id="Cart"> Cart </div>
+                    <div id="Followers">Followers </div>
+                    <div id="Following">Following </div>
+                    <!--EDIT MY PROFILE-->
+                    <div id="edit">
+
+                        <div class="row animated fadeIn">
+
+                            <div class="col s12 m12 l12">
+                                <br>
+                                <h4 class="purple-text-color animated fadeInUp center">Complete your profile</h4>
+                                <p class="center">
+                                    Completing the information of your profile will give your followers <br> or contractors
+                                    more opportunity to know about you.
+                                </p>
+                                <br><br>
+
+                                <div class="row">
+                                    <div class="input-field col s2">
+                                        <h6>Full name:</h6>
+                                    </div>
+                                    <div class="input-field col s10">
+                                        <input ng-model="fullname" placeholder="You have not added your name yet" type="text">
+                                    </div>
+                                    <div class="input-field col s2">
+                                        <h6>Username <span class="red-text">*</span></h6>
+                                    </div>
+                                    <div class="input-field col s10">
+                                        <input ng-model="authUser" type="text" class="indigo-text">
+                                    </div>
+                                    <div class="input-field col s2">
+                                        <h6>Profession</h6>
+                                    </div>
+                                    <div class="input-field col s10">
+                                        <input ng-model="profession" placeholder="Add your profession" type="text" class="indigo-text">
+                                    </div>
+                                    <div class="input-field col s2">
+                                        <h6>Email <span class="red-text">*</span></h6>
+                                    </div>
+                                    <div class="input-field col s10">
+                                        <input ng-model="email" type="email" class="indigo-text">
+                                    </div>
+                                    <div class="input-field col s2">
+                                        <h6>Phone</h6>
+                                    </div>
+                                    <div class="input-field col s10">
+                                        <input ng-model="phone" placeholder="506 222 222 222" type="text" class="indigo-text">
+                                    </div>
+                                    <div class="input-field col s2">
+                                        <h6>About you</h6>
+                                    </div>
+                                    <div class="input-field col s10">
+                                        <textarea ng-model="about" id="textarea1" placeholder="Tell us something about you" class="materialize-textarea"></textarea>
+                                    </div>
+                                </div>
+                                <!--HIDEN FORM-->
+                                <div id="socialStt" ng-show="showStt" class="animated fadeIn">
+
+                                    <h5 class=" purple-text-color center">Social Connections</h5>
+                                    <div class="input-field col s2">
+                                        <h6>Facebook</h6>
+                                    </div>
+                                    <div class="input-field col s10">
+                                        <input ng-model="facebook" placeholder="Add your profile URL:" type="text" class="validate indigo-text">
+                                    </div>
+                                    <div class="input-field col s2">
+                                        <h6>Twitter</h6>
+                                    </div>
+                                    <div class="input-field col s10">
+                                        <input ng-model="Twitter" placeholder="Add your profile URL:" type="text" class="validate indigo-text">
+                                    </div>
+                                    <div class="input-field col s2">
+                                        <h6>Dribbble</h6>
+                                    </div>
+                                    <div class="input-field col s10">
+                                        <input ng-model="Dribbble" placeholder="Add your profile URL:" type="text" class="validate indigo-text">
+                                    </div>
+                                    <div class="input-field col s2">
+                                        <h6>GitHub</h6>
+                                    </div>
+                                    <div class="input-field col s10">
+                                        <input ng-model="GitHub" placeholder="Add your profile URL:" type="text" class="validate indigo-text">
+                                    </div>
+                                    <div class="input-field col s2">
+                                        <h6>Behance</h6>
+                                    </div>
+                                    <div class="input-field col s10">
+                                        <input ng-model="Behance" placeholder="Add your profile URL:" type="text" class="validate indigo-text">
+                                    </div>
+                                    <div class="input-field col s2">
+                                        <h6>CodePen</h6>
+                                    </div>
+                                    <div class="input-field col s10">
+                                        <input ng-model="CodePen" placeholder="Add your profile URL:" type="text" class="validate indigo-text">
+                                    </div>
+                                    <div class="input-field col s2">
+                                        <h6>Instagram</h6>
+                                    </div>
+                                    <div class="input-field col s10">
+                                        <input ng-model="Instagram" placeholder="Add your profile URL:" type="text" class="validate indigo-text">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row" style="margin-top: 5px">
+                            <div ng-show="Spreloader">
+                                <br>
+                                <div class="progress animated fadeIn">
+                                    <div class="indeterminate"></div>
+                                </div>
+                                <br>
+                            </div>
+
+                            <div class="right-align">
+                                <a ng-hide="Spreloader" ng-click="saveMainData();" ng-disabled="!authUser || !email" class="waves-effect waves-light btn btn-large radius-button-purple animated fadeIn"
+                                    href="">Save data</a>
+                                <br>
+                                <h6 id="errMessg" class="red-text animated fadeIn"></h6>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="center">
+                                <a ng-click="showStt = !showStt" href="">
+                                    <i ng-show="!showStt" title="Show more settings" class="material-icons circle-icon">keyboard_arrow_down</i>
+                                    <i ng-show="showStt" title="hide this settings" class="material-icons circle-icon">keyboard_arrow_up</i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!--END TAB-->
+                </div>
+            </div>
+        </div>
+        <div class="col s12 m1 l1"></div>
+
+    </div>
+</div>

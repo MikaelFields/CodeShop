@@ -1,0 +1,110 @@
+<div class="">
+
+    <div class="cover-singup-back">
+
+        <div class="space hide-on-small-only"></div>
+        <div class="space-r hide-on-med-and-up"></div>
+
+
+
+
+<div id="welcomeReg">
+   <div  class="card z-depth-3 animated fadeIn center" style="margin:0% auto; width: 40%">
+ <div class="cover-singup" style="height: 250px"></div>
+  <div class="card-content">      
+      <div class="row">
+          <div class="col s12 center">              
+            <h6 class="white-text animated fadeInUp" style="position: relative; margin-top: -110px">  Great! welcome to CodeShop </h6> 
+            <h6 class="grey-text" style="margin-top: 110px">Now let's <a class="blue-text" href="#!login">Sign In</a> by first time!</h6>
+          </div>
+      </div>
+  </div>
+ </div>  
+</div>
+
+<div id="formReg" >
+       <div class="card z-depth-3 animated fadeIn center" style="max-width: 400px; margin:0% auto">
+            <div class="cover-singup" style="height: 200px"></div>
+            <div class="card-content">
+                <br>
+                <h6 class="white-text" style="position: relative; margin-top: -110px">Sign Up</h6>
+                <p class="white-text small-letter-s">Let’s set up your account in just a couple of steps.</p>
+                <br> <br>
+                <form>
+                    <div class="row left-align">
+                        <div class="input-field col s12">
+                            <input ng-model="user.username" id="username" type="text">
+                            <label for="username">Username</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <input ng-model="user.email" id="email" type="email">
+                            <label for="email">Email</label>
+                        </div>
+                        <div class="input-field col s12">
+                            <input ng-model="user.password" id="password" type="password">
+                            <label for="password">Password</label>
+                        </div>
+                    </div>
+                      <div id="prealoader-logIn" class="row animated fadeIn">
+                                <div class="col s12">
+                                    <br>
+                                     <div class="progress">
+                                        <div class="indeterminate"></div>
+                                    </div>
+                                </div>
+                            </div>
+                    <div id="buttons" class="row animated fadeIn">
+                        <div class="col s12 m12 l6">
+                            <br>
+                            <button ng-click="regist();" type="submit" ng-disabled="!user.username || !user.email || !user.password" class="waves-effect waves-light btn btn-large purple-custom">Sign Up</button>
+                        </div>
+                        <div class="col s12 m12 l6">
+                            <br>
+                            <a class="waves-effect waves-light btn btn-large radius-button-purple" href="#!landing">go back</a>
+                        </div>
+
+                    </div>
+                    <div class="row center">
+                        <h6 id="userMatch" class="red-text text-darken-3 animated fadeIn"></h6>                    
+                    </div>
+                      <div class="row">                                
+                                <div class="col s12 m12 l12">                                 
+                                    <h6>So you already have an account? <a class="blue-text" href="#!login">SignIn</a>  then!</h6>
+                                    <br>                                  
+                                </div>
+                            </div>
+                </form>
+            </div>
+        </div>   
+</div>
+
+  
+
+        <div class="" style="height: 200px"></div>
+
+    </div>
+    <footer class="page-footer purple-c-color">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">Footer Content</h5>
+                    <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="white-text">Links</h5>
+                    <ul>
+                        <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+                        <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <div class="container">
+                © 2014 Copyright Text
+                <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+            </div>
+        </div>
+    </footer>
